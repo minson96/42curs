@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:39:52 by minson            #+#    #+#             */
-/*   Updated: 2022/11/23 16:18:21 by minson           ###   ########seoul.kr  */
+/*   Created: 2022/11/18 15:33:32 by minson            #+#    #+#             */
+/*   Updated: 2022/11/24 14:41:55 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*ptr_dst;
-	unsigned char	*ptr_src;
-	size_t			i;
+	size_t		i;
+	char		*s2;
 
+	i = ft_strlen(s1);
+	s2 = (char *)malloc(sizeof(char) * i + 1);
+	if (s2 == 0)
+		return (NULL);
 	i = 0;
-	ptr_dst = (unsigned char *)dst;
-	ptr_src = (unsigned char *)src;
-	while (i < n)
+	while (s1[i] != 0)
 	{
-		*ptr_dst = *ptr_src;
-		ptr_dst++;
-		ptr_src++;
+		s2[i] = s1[i];
 		i++;
 	}
-	return ((void *)dst);
+	return (s2);
 }

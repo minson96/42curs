@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:39:52 by minson            #+#    #+#             */
-/*   Updated: 2022/11/23 16:18:21 by minson           ###   ########seoul.kr  */
+/*   Created: 2022/11/14 15:11:56 by minson            #+#    #+#             */
+/*   Updated: 2022/11/23 16:21:52 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char	*ptr_dst;
 	unsigned char	*ptr_src;
-	size_t			i;
 
-	i = 0;
-	ptr_dst = (unsigned char *)dst;
+	ptr_dst = dst;
 	ptr_src = (unsigned char *)src;
-	while (i < n)
-	{
-		*ptr_dst = *ptr_src;
-		ptr_dst++;
-		ptr_src++;
-		i++;
-	}
-	return ((void *)dst);
+	while (len--)
+		ptr_dst[len] = ptr_src[len];
+	return (dst);
 }

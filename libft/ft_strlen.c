@@ -1,14 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/10 12:44:35 by minson            #+#    #+#             */
+/*   Updated: 2022/11/10 13:42:48 by minson           ###   ########seoul.kr  */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+unsigned long	ft_strlen(const char *s)
 {
-	size_t	length;
+	unsigned long	i;
 
-	length = 0;
-	while (*str)
-	{
-		str++;
-		length++;
-	}
-	return (length);
+	i = 0;
+	while (s[i] != 0)
+		i++;
+	return (i);
 }

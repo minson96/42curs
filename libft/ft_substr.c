@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:39:52 by minson            #+#    #+#             */
-/*   Updated: 2022/11/23 16:18:21 by minson           ###   ########seoul.kr  */
+/*   Created: 2022/11/21 14:49:17 by minson            #+#    #+#             */
+/*   Updated: 2022/11/23 16:22:52 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*ptr_dst;
-	unsigned char	*ptr_src;
-	size_t			i;
+	char	*sub_s;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	ptr_dst = (unsigned char *)dst;
-	ptr_src = (unsigned char *)src;
-	while (i < n)
+	sub_s = NULL;
+	j = 0;
+	i = start;
+	while (s[i] != 0 && j < len)
 	{
-		*ptr_dst = *ptr_src;
-		ptr_dst++;
-		ptr_src++;
+		sub_s[j] = s[i];
+		j++;
 		i++;
 	}
-	return ((void *)dst);
+	return (sub_s);
 }
