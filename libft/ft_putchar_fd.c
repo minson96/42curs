@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:14:25 by minson            #+#    #+#             */
-/*   Updated: 2022/11/24 17:04:42 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/28 15:46:08 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	
+	write(fd, &c, 1);
 }

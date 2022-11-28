@@ -6,7 +6,7 @@
 #    By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 12:59:46 by minson            #+#    #+#              #
-#    Updated: 2022/11/24 14:35:26 by minson           ###   ########seoul.kr   #
+#    Updated: 2022/11/24 17:17:01 by minson           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ bonus: $(NAME)
 		$(CC) $(FLAGS) $(BONUS_SRCS) -o $(NAME)
 
 clean:
-		$(RM) srcs/*.o
+		$(RM) $(SRCS:.c=.o) $(BONUS_SRCS:.c=.o)
 
 fclean: clean
 		$(RM) $(NAME)
