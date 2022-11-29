@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:14:17 by minson            #+#    #+#             */
-/*   Updated: 2022/11/28 15:46:46 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/29 17:17:54 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,13 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, s[i], 1);
+		i++;
+	}
 	write(fd, "\n", 1);
 }

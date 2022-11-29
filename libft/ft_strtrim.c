@@ -6,29 +6,54 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:15:05 by minson            #+#    #+#             */
-/*   Updated: 2022/11/28 16:51:19 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/29 16:48:37 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	count_word(char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	count;
+	size_t	set_len;
+
+	set_len = sizeof(char) * ft_strlen(set);
+	i = 0;
+	while (set[i])
+	{
+		if (ft_strncmp(s1 + i, set, set_len) == 0)
+			count++;
+		i++;
+	}
+	return (count);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	str_len;
+	size_t	count;
+	size_t	set_len;
 	size_t	i;
-	size_t	j;
-	char	*str;
+	char	*mem;
 
+	mem = NULL;
 	i = 0;
-	j = 0;
-	str_len = ft_strlen(s1) - (ft_strlen(set) * 2);
-	str = (char *)malloc(sizeof(char) * (str_len + 1));
+	count = 0;
+	set_len = sizeof(char) * ft_strlen(set);
 	while (s1[i])
 	{
-		j = 0;
-		if (s1[i] == set)
-		i++;
-		j++;
+		if ((ft_strncmp(s1 + i, set, set_len) == 0) && (count == 0
+				|| (count == count_word(s1, set))))
+		{	
+			i += ft_strlen(set);
+			count++;
+		}
+		else
+		{
+			*mem = s1[i];
+			*mem++;
+		}
 	}
-	return (str);
+	*mem = '\0';
+	return (mem);
 }

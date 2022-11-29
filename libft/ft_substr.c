@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:49:17 by minson            #+#    #+#             */
-/*   Updated: 2022/11/23 16:22:52 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/29 15:07:53 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 
-	sub_s = NULL;
+	sub_s = (char *)malloc(sizeof(char) * (len + 1));
 	j = 0;
 	i = start;
 	while (s[i] != 0 && j < len)
@@ -27,5 +27,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		j++;
 		i++;
 	}
+	sub_s[j] = '\0';
 	return (sub_s);
 }
