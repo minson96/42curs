@@ -6,13 +6,13 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:13:50 by minson            #+#    #+#             */
-/*   Updated: 2022/11/29 16:58:39 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/30 16:21:05 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char *s, char *c)
+int	word_count(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	word_count(char *s, char *c)
 	return (count);
 }
 
-char	*word_check(char *s, char *c, int ptr)
+char	*word_check(char const *s, char c, int ptr)
 {
 	int		i;
 	int		j;

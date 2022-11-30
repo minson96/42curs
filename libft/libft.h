@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:35:47 by minson            #+#    #+#             */
-/*   Updated: 2022/11/24 17:08:24 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/30 18:00:44 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}				t_list;
 
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);

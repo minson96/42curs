@@ -6,18 +6,19 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:15:05 by minson            #+#    #+#             */
-/*   Updated: 2022/11/29 16:48:37 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/30 17:17:18 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_word(char const *s1, char const *set)
+static size_t	count_word(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	count;
 	size_t	set_len;
 
+	count = 0;
 	set_len = sizeof(char) * ft_strlen(set);
 	i = 0;
 	while (set[i])
@@ -51,7 +52,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		else
 		{
 			*mem = s1[i];
-			*mem++;
+			mem++;
 		}
 	}
 	*mem = '\0';

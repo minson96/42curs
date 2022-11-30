@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:13:58 by minson            #+#    #+#             */
-/*   Updated: 2022/11/28 15:51:02 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/11/30 16:19:02 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr_fd(char *s, int fd)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		write(fd, s[i], 1);
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
