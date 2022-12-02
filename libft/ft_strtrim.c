@@ -6,55 +6,73 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:15:05 by minson            #+#    #+#             */
-/*   Updated: 2022/11/30 17:17:18 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/02 17:23:29 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_word(char const *s1, char const *set)
+static size_t	ft_start(char const *s1, char const *set)
 {
 	size_t	i;
-	size_t	count;
-	size_t	set_len;
+	size_t	j;
 
-	count = 0;
-	set_len = sizeof(char) * ft_strlen(set);
 	i = 0;
-	while (set[i])
+	j = 0;
+	while (s1[i])
 	{
-		if (ft_strncmp(s1 + i, set, set_len) == 0)
-			count++;
+		if (s1[i] == set[j])
+		{	
+			i++;
+			j++;
+		}
+		else
+		{
+			
+		}
 		i++;
 	}
-	return (count);
+	return (i);
+}
+
+static size_t	ft_end(char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	j;
+
+	j = 0;
+	i = ft_strlen(s1);
+	while (s1[i] == set[j])
+	{
+		j++;
+		i--;
+	}
+	return (i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	count;
-	size_t	set_len;
 	size_t	i;
-	char	*mem;
+	size_t	start;
+	size_t	end;
+	char	*tot_mem;
 
-	mem = NULL;
+	tot_mem = NULL;
 	i = 0;
-	count = 0;
-	set_len = sizeof(char) * ft_strlen(set);
-	while (s1[i])
+	start = ft_start(s1, set);
+	end = ft_end(s1, set);
+	if (ft_strnstr(s1, set, (size_t)ft_strlen(set)) != 0)
+		return ((char *)s1);
+	tot_mem = (char *)malloc(sizeof(char) * (int)(end - start +1));
+	if (tot_mem == 0)
+		return (NULL);
+	i = 0;
+	while (start < end)
 	{
-		if ((ft_strncmp(s1 + i, set, set_len) == 0) && (count == 0
-				|| (count == count_word(s1, set))))
-		{	
-			i += ft_strlen(set);
-			count++;
-		}
-		else
-		{
-			*mem = s1[i];
-			mem++;
-		}
+		tot_mem[i] = s1[start];
+		start++;
+		i++;
 	}
-	*mem = '\0';
-	return (mem);
+	tot_mem[i] = '\0';
+	return (tot_mem);
 }

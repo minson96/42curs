@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:02:59 by minson            #+#    #+#             */
-/*   Updated: 2022/11/23 16:26:35 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/02 14:00:29 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)s + i);
 		i--;
 	}
+	if (s[i] == c)
+		return ((char *)s + i);
 	return (NULL);
 }

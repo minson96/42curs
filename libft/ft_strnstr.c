@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:26:16 by minson            #+#    #+#             */
-/*   Updated: 2022/11/24 13:52:15 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/02 14:59:46 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (len == 0 || needle == 0)
+	if (needle == 0)
 		return ((char *)haystack);
-	while (haystack[i] != 0)
+	while (haystack[i] != 0 && i < len)
 	{
-		if (ft_strncmp(haystack + i, needle, len) == 0)
+		if ((ft_strncmp(haystack + i, needle, ft_strlen(needle)) == 0)
+			&& i + ft_strlen(needle) <= len)
 			return ((char *)haystack + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

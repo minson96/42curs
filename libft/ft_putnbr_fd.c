@@ -6,13 +6,13 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:14:07 by minson            #+#    #+#             */
-/*   Updated: 2022/11/30 16:14:30 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/02 18:01:29 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_putchar(int nb, int fd)
+static void	ft_putchar(long nb, int fd)
 {
 	char	c;
 
@@ -22,19 +22,22 @@ static void	ft_putchar(int nb, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
-		write(1, "-2147483648", 11);
-	else if (n < 0)
+	long	nbr;
+
+	nbr = n;
+	if (nbr == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (nbr < 0)
 	{
 		write(fd, "-", 1);
-		n = n * (-1);
-		ft_putnbr_fd(n, fd);
+		nbr = nbr * (-1);
+		ft_putnbr_fd(nbr, fd);
 	}
-	else if (n > 9)
+	else if (nbr > 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
 	}
-	else if (n <= 9)
-		ft_putchar(n, fd);
+	else if (nbr <= 9)
+		ft_putchar(nbr, fd);
 }

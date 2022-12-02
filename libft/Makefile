@@ -6,7 +6,7 @@
 #    By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 12:59:46 by minson            #+#    #+#              #
-#    Updated: 2022/11/30 18:17:26 by minson           ###   ########seoul.kr   #
+#    Updated: 2022/12/02 18:12:59 by minson           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,29 +57,38 @@ BONUS_SRCS = ft_lstsize_bonus.c \
 			 ft_lstmap_bonus.c \
 			 ft_lstnew_bonus.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS					= $(SRCS:%.c=%.o)
 
-CC = gcc 
+BONUS_OBJS				= $(BONUS_SRCS:%.c=%.o)
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS					= -Wall -Wextra -Werror
 
-RM = rm -f
+ifdef WITH_BONUS
+	OBJ_FILES = $(OBJS) $(BONUS_OBJS)
+else
+	OBJ_FILES = $(OBJS)
+endif
 
-all: $(NAME)
+all	:	$(NAME)
 
-%.o: %.c
-		$(CC) $(FLAGS) -I $() -c $< -o $@
+$(NAME)		:	$(OBJ_FILES)
+			ar rcs $(NAME) $(OBJ_FILES)
 
-$(NAME): $(SRCS) $(BONUS_SRCS)
-		$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+$(CC) :
+	cc
+%.o			: %.c
+	$(CC) $(FLAGS) -c $^ -I./ -o $@
 
-bonus: $(NAME)
-		$(CC) $(FLAGS) $(BONUS_SRCS) -o $(NAME)
+bonus :
+	sleep 1
+	make WITH_BONUS=1 all
 
-clean:
-		$(RM) $(SRCS:.c=.o) $(BONUS_SRCS:.c=.o)
+clean	:
+		rm -f $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-		$(RM) $(NAME)
+fclean	:	clean
+		rm -f $(NAME)
 
-re:	fclean
+re	:	fclean all
+
+.PHONY	:	all clean fclean re bonus
