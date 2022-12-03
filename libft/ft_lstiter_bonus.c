@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:08:39 by minson            #+#    #+#             */
-/*   Updated: 2022/12/02 12:21:27 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 17:35:27 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst == 0 || f == 0)
-	{
+	if (lst == NULL || f == NULL)
 		return ;
-	}
 	while (lst)
 	{
 		f(lst->content);

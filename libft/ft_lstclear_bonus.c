@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:08:46 by minson            #+#    #+#             */
-/*   Updated: 2022/12/02 12:21:41 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 17:37:03 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*next;
+	t_list	*cur;
 
-	if (lst == 0)
-	{
+	if (lst == NULL)
 		return ;
-	}
 	while (*lst)
 	{
-		next = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = next;
+		cur = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(cur, del);
 	}
-	*lst = 0;
+	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:11:56 by minson            #+#    #+#             */
-/*   Updated: 2022/12/02 15:03:23 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 16:12:04 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*ptr_src;
 	size_t			i;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	ptr_dst = dst;
 	ptr_src = (unsigned char *)src;
 	i = 0;

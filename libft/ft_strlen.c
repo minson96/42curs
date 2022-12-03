@@ -6,15 +6,15 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:44:35 by minson            #+#    #+#             */
-/*   Updated: 2022/11/10 13:42:48 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 18:03:53 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	unsigned long	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != 0)

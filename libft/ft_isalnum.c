@@ -6,11 +6,9 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:32:34 by minson            #+#    #+#             */
-/*   Updated: 2022/11/10 12:32:40 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 17:56:38 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalnum(int c)
 {

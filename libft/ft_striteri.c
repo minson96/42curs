@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:19:40 by minson            #+#    #+#             */
-/*   Updated: 2022/11/30 16:27:05 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 18:02:36 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

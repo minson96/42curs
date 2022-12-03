@@ -6,11 +6,9 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:31:56 by minson            #+#    #+#             */
-/*   Updated: 2022/12/02 13:46:12 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 17:57:03 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isprint(int c)
 {

@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:26:16 by minson            #+#    #+#             */
-/*   Updated: 2022/12/02 14:59:46 by minson           ###   ########seoul.kr  */
+/*   Updated: 2022/12/03 15:52:54 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (needle == 0)
+	if (ft_strlen(haystack) < len)
+		len = ft_strlen(haystack);
+	if (ft_strlen(needle) == 0)
 		return ((char *)haystack);
 	while (haystack[i] != 0 && i < len)
 	{
