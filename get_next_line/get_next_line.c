@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:18:12 by minson            #+#    #+#             */
-/*   Updated: 2023/03/26 17:10:31 by minson           ###   ########seoul.kr  */
+/*   Updated: 2023/03/26 18:58:47 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ char	*get_next_line(int fd)
 	char		*insert_line;
 	char		*out_line;
 
-	if (BUFFER_SIZE <= 0 || (fd < 0 || fd > 256))
+	if (BUFFER_SIZE <= 0 || (fd < 0 || fd > 259))
 		return (NULL);
 	insert_line = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (insert_line == NULL)

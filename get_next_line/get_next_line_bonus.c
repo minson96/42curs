@@ -6,7 +6,7 @@
 /*   By: minson <minson@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 13:09:18 by minson            #+#    #+#             */
-/*   Updated: 2023/03/26 16:05:48 by minson           ###   ########seoul.kr  */
+/*   Updated: 2023/03/26 18:59:02 by minson           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ static char	*up_line(int fd, char **storage_line, char **insert_line)
 
 char	*get_next_line(int fd)
 {
-	static char	*storage_line[257];
+	static char	*storage_line[260];
 	char		*insert_line;
 	char		*out_line;
 
-	if (BUFFER_SIZE <= 0 || (fd < 0 || fd > 256))
+	if (BUFFER_SIZE <= 0 || (fd < 0 || fd > 259))
 		return (NULL);
 	insert_line = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (insert_line == NULL)
